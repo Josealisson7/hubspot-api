@@ -36,7 +36,13 @@ GET http://localhost:8080/authorization/url?clientId=CLIENT_ID&redirectUri=REDIR
 **Endpoint: GET /authorization/token**
 
 **Parâmetros:**  
-| Nome         | Tipo   | Obrigatório | Descrição | |-------------|--------|------------|------------| | clientId  | String | ✅ | ID do cliente fornecido pelo HubSpot | | redirectUri | String | ✅ | URL de redirecionamento usada na autenticação | | clientSecret | String | ✅ | Chave secreta do cliente para autenticação | | code | String | ✅ | Código de autorização recebido do HubSpot |
+| Nome         | Tipo   | Obrigatório | Descrição |
+|-------------|--------|------------|------------|
+| `clientId`  | `String` | ✅ | ID do cliente fornecido pelo HubSpot |
+| `redirectUri` | `String` | ✅ | URL de redirecionamento após a autenticação |
+| `clientSecret` | `String` | ✅ | Chave secreta do cliente para autenticação |
+| `code` | `String` | ✅ | Código de autorização recebido do HubSpot |
+
 Exemplo de requisição:
 GET http://localhost:8080/authorization/token?clientId=CLIENT_ID&redirectUri=REDIRECT_URI&clientSecret=CLIENT_SECRET&code=CODE
 
@@ -53,7 +59,10 @@ GET http://localhost:8080/authorization/token?clientId=CLIENT_ID&redirectUri=RED
 **Endpoint: POST /contact/create**
 
 **Headers:**  
-| Nome | Obrigatório | Descrição | |------|------------|------------| | authorization_token | ✅ | Token OAuth obtido via autenticação |  
+| Nome                 | Obrigatório | Descrição                          |
+|----------------------|------------|----------------------------------|
+| `authorization_token` | ✅         | Token OAuth obtido via autenticação |
+
 
 **Corpo da requisição:**  
 ```json
@@ -157,7 +166,12 @@ Agora, trocaremos o código por um token de acesso.
 GET /authorization/token
 ```
 **Parâmetros obrigatórios:**  
-| Nome         | Tipo     | Obrigatório | Descrição | |-------------|---------|------------|------------| | clientId  | String | ✅ | ID do cliente | | redirectUri | String | ✅ | Mesmo redirect URI usado na autorização | | clientSecret | String | ✅ | Chave secreta do cliente | | code      | String | ✅ | Código gerado pelo HubSpot |
+| Nome          | Tipo     | Obrigatório | Descrição                                     |
+|--------------|---------|------------|----------------------------------------------|
+| `clientId`    | `String` | ✅        | ID do cliente                               |
+| `redirectUri` | `String` | ✅        | Mesmo redirect URI usado na autorização     |
+| `clientSecret` | `String` | ✅        | Chave secreta do cliente                    |
+| `code`        | `String` | ✅        | Código gerado pelo HubSpot
 
 **Resposta esperada:**
 ```json
@@ -174,7 +188,10 @@ Com o access_token obtido no passo anterior, agora podemos criar um contato.
 **Endpoint:**  
 POST /contact/create
 **Headers obrigatórios:**  
-| Nome | Obrigatório | Descrição | |------|------------|------------| | authorization_token | ✅ | Token OAuth obtido no passo anterior |
+| Nome                 | Obrigatório | Descrição                                  |
+|----------------------|------------|------------------------------------------|
+| `authorization_token` | ✅        | Token OAuth obtido no passo anterior     |
+
 
 **Corpo da requisição:**
 ```json
