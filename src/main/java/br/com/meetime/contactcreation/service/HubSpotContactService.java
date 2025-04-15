@@ -35,15 +35,15 @@ public class HubSpotContactService {
     }
 
     public ResponseEntity<String> contactCreationWebhook(List<Map<String, Object>> events) {
-        System.out.println("Webhook recebido: " + events);
+        System.out.println("Webhook received: " + events);
 
         for (Map<String, Object> event : events) {
             if ("contact.creation".equals(event.get("eventType"))) {
-                System.out.println("Novo contato criado: " + event);
+                System.out.println("New contact created: " + event);
             }
         }
 
-        return ResponseEntity.ok("Eventos processados com sucesso.");
+        return ResponseEntity.ok("Successfully processed events.");
     }
 
 }
